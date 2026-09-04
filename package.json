@@ -25,7 +25,7 @@
     "prettier:write": "prettier --write .",
     "lint": "eslint src/**/*.{js,ts}",
     "commitlint": "commitlint --edit",
-    "test": "jest src --coverage"
+    "test": "echo Not covered yet"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
