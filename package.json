@@ -1,6 +1,6 @@
 {
-  "name": "@kuzanatoliorg/chartjs-keyboard-plugin",
-  "version": "0.18.0",
+  "name": "@kuzanatoliorg/chartjs-legend-keyboard-plugin",
+  "version": "0.0.0",
   "private": false,
   "description": "Chartjs keyboard navigation plugin",
   "keywords": [
@@ -8,13 +8,13 @@
     "a11y",
     "keyboard novigation"
   ],
-  "homepage": "https://github.com/kuzanatoliy/chartjs-keyboard-plugin#readme",
+  "homepage": "https://github.com/kuzanatoliy/chartjs-legend-keyboard-plugin#readme",
   "bugs": {
-    "url": "https://github.com/kuzanatoliy/chartjs-keyboard-plugin/issues"
+    "url": "https://github.com/kuzanatoliy/chartjs-legend-keyboard-plugin/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kuzanatoliy/chartjs-keyboard-plugin.git"
+    "url": "git+https://github.com/kuzanatoliy/chartjs-legend-keyboard-plugin.git"
   },
   "license": "MIT",
   "author": "kuzanatoliy <njkznu@gmail.com>",
