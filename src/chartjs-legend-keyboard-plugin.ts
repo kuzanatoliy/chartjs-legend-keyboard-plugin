@@ -1,6 +1,6 @@
 import { Chart, type Plugin } from 'chart.js';
 import { type TChartjsLegendKeyboardPluginOptions } from './types';
-import { ChartjsLegendKeyboardPluginEngine } from './chartjs-legend-keyboard-plugin-engine';
+import { ChartjsLegendKeyboardPluginEngine } from './engines';
 
 const store = new Map<Chart, ChartjsLegendKeyboardPluginEngine>();
 
