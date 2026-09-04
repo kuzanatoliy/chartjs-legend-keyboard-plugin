@@ -78,6 +78,6 @@ jobs:
               workflow_id: 'update-plugin.yml',
               ref: 'master',
               inputs: {
-                plugin: 'chartjs-keyboard-plugin'
+                plugin: 'chartjs-legend-keyboard-plugin'
               }
             });

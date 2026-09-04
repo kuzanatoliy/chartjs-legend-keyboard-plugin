@@ -1,4 +1,4 @@
-# chartjs-keyboard-plugin
+# chartjs-legend-keyboard-plugin
 
 The plugin adds keyboard navigation to the Chart.js library. It supports a few navigation strategies that allow specifying usage scenarios and improving user experience.
 
@@ -11,19 +11,19 @@ Watch the [Demo](https://www.youtube.com/watch?v=rJHDyqld9X8).
 #### npm
 
 ```bash
-npm install @kuzanatoliorg/chartjs-keyboard-plugin
+npm install @kuzanatoliorg/chartjs-legend-keyboard-plugin
 ```
 
 #### yarn
 
 ```bash
-yarn add @kuzanatoliorg/chartjs-keyboard-plugin
+yarn add @kuzanatoliorg/chartjs-legend-keyboard-plugin
 ```
 
 #### pnpm
 
 ```bash
-pnpm add @kuzanatoliorg/chartjs-keyboard-plugin
+pnpm add @kuzanatoliorg/chartjs-legend-keyboard-plugin
 ```
 
 ### Getting Started
@@ -36,7 +36,7 @@ Register the plugin globally in your application:
 
 ```javascript
 import Chart from 'chart.js/auto';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-keyboard-plugin';
+import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 Chart.register(chartjsKeyboardPlugin);
 ```
@@ -45,7 +45,7 @@ Or you can register the plugin for a specific chart:
 
 ```javascript
 import Chart from 'chart.js/auto';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-keyboard-plugin';
+import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 const chart = new Chart(ctx, {
     // ...
@@ -59,7 +59,7 @@ For React applications using `react-chartjs-2`, register the plugin globally wit
 
 ```javascript
 import { Chart as ChartJS } from 'chart.js';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-keyboard-plugin';
+import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 ChartJS.register(chartjsKeyboardPlugin);
 ```
@@ -68,7 +68,7 @@ Or you can register the plugin for a specific chart:
 
 ```javascript
 import { Bar } from 'react-chartjs-2';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-keyboard-plugin';
+import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 function MyChart() {
   return (
@@ -148,7 +148,7 @@ To use the plugin with TypeScript, you need to add types to the `chart.js` modul
 
 ```typescript
 import { ChartType } from 'chart.js';
-import { type TChartjsKeyboardPluginOptions } from '@kuzanatoliorg/chartjs-keyboard-plugin';
+import { type TChartjsKeyboardPluginOptions } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 declare module 'chart.js' {
   interface PluginOptionsByType<TType extends ChartType> {
