@@ -26,7 +26,7 @@ pnpm add @kuzanatoliorg/chartjs-legend-keyboard-plugin
 
 ## Getting Started
 
-To enable legend keyboard navigation, you need to register the plugin with Chart.js. Once registered, the plugin will automatically add keyboard support to your chart's legend.
+To enable legend keyboard navigation, you need to register the plugin with [Chart.js](https://www.chartjs.org/docs/latest/). Once registered, the plugin will automatically add keyboard support to your chart's legend.
 
 ### Chart.js
 
@@ -78,6 +78,8 @@ function MyChart() {
   );
 }
 ```
+
+> **Note:** The plugin were tested on **Chart.js** **`3.x`** and **`4.x`** versions and support versions higher than **`3.x`**.
 
 ## Keyboard Navigation
 
