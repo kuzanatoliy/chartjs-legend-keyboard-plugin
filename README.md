@@ -1,6 +1,6 @@
 # chartjs-legend-keyboard-plugin
 
-The plugin adds keyboard navigation to the Chart.js library. It enables keyboard navigation within the legend, improving accessibility and the overall user experience.
+The plugin adds keyboard navigation to the [Chart.js](https://www.chartjs.org/docs/latest/) library. It enables keyboard navigation within the legend, improving accessibility and the overall user experience.
 
 To test the plugin, you can use the [Demo application](https://kuzanatoliy.github.io/chartjs-demo/). / Watch the [Demo](https://youtu.be/W2yLe0SmLUk).
 
