@@ -1,12 +1,10 @@
 # chartjs-legend-keyboard-plugin
 
-The plugin adds keyboard navigation to the Chart.js library. It supports a few navigation strategies that allow specifying usage scenarios and improving user experience.
+The plugin adds keyboard navigation to the Chart.js library. It enables keyboard navigation within the legend, improving accessibility and the overall user experience.
 
-To test the plugin, you can use the [Demo application](https://kuzanatoliy.github.io/chartjs-demo/).
+To test the plugin, you can use the [Demo application](https://kuzanatoliy.github.io/chartjs-demo/). / Watch the [Demo](https://youtu.be/W2yLe0SmLUk).
 
-Watch the [Demo](https://www.youtube.com/watch?v=rJHDyqld9X8).
-
-### Installation
+## Installation
 
 #### npm
 
@@ -26,113 +24,88 @@ yarn add @kuzanatoliorg/chartjs-legend-keyboard-plugin
 pnpm add @kuzanatoliorg/chartjs-legend-keyboard-plugin
 ```
 
-### Getting Started
+## Getting Started
 
-To enable keyboard navigation, you need to register the plugin with Chart.js. Once registered, the plugin will automatically add keyboard support to your charts.
+To enable legend keyboard navigation, you need to register the plugin with Chart.js. Once registered, the plugin will automatically add keyboard support to your chart's legend.
 
-#### Chart.js
+### Chart.js
 
 Register the plugin globally in your application:
 
 ```javascript
 import Chart from 'chart.js/auto';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
+import { chartjsLegendKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
-Chart.register(chartjsKeyboardPlugin);
+Chart.register(chartjsLegendKeyboardPlugin);
 ```
 
 Or you can register the plugin for a specific chart:
 
 ```javascript
 import Chart from 'chart.js/auto';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
+import { chartjsLegendKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 const chart = new Chart(ctx, {
     // ...
-    plugins: [chartjsKeyboardPlugin]
+    plugins: [chartjsLegendKeyboardPlugin]
 });
 ```
 
-#### react-chartjs-2
+### react-chartjs-2
 
 For React applications using `react-chartjs-2`, register the plugin globally with `ChartJS`:
 
 ```javascript
 import { Chart as ChartJS } from 'chart.js';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
+import { chartjsLegendKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
-ChartJS.register(chartjsKeyboardPlugin);
+ChartJS.register(chartjsLegendKeyboardPlugin);
 ```
 
 Or you can register the plugin for a specific chart:
 
 ```javascript
 import { Bar } from 'react-chartjs-2';
-import { chartjsKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
+import { chartjsLegendKeyboardPlugin } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 function MyChart() {
   return (
     <Bar
       data={data}
       options={options}
-      plugins={[chartjsKeyboardPlugin]}
+      plugins={[chartjsLegendKeyboardPlugin]}
     />
   );
 }
 ```
 
-### Keyboard Navigation
+## Keyboard Navigation
 
-The plugin supports the following keys for navigating the chart (behavior may vary slightly depending on the active strategy):
+The plugin supports the following keys for navigating the chart legend (behavior may vary slightly depending on the active strategy):
 
 - **Arrow Left**: Navigates to the previous item (or next in RTL mode).
 - **Arrow Right**: Navigates to the next item (or previous in RTL mode).
-- **Arrow Up**: Navigates to the previous item (or previous dataset in the `balance` strategy).
-- **Arrow Down**: Navigates to the next item (or next dataset in the `balance` strategy).
+- **Arrow Up**: Navigates to the previous item.
+- **Arrow Down**: Navigates to the next item.
 - **Home**: Navigates to the first item.
 - **End**: Navigates to the last item.
-- **Enter** / **Space**: Activates the data item and displays its tooltip.
-- **Escape**: Deactivates the data item and hides its tooltip.
+- **Enter** / **Space**: Toggles the visibility of the dataset.
 
-### Configuration
+## Configuration
 
-The main property to control keyboard behavior is `strategy`. It allows you to choose one of five strategies that can change the user experience.
+You can configure the plugin's behavior, accessibility labels (pronunciation), and focus styling through the `chartjsLegendKeyboardPlugin` options object.
 
-```javascript
-const chart = new Chart(ctx, {
-    // ...
-    options: {
-        plugins: {
-            // ...
-            chartjsKeyboardPlugin: {
-              strategy: 'data-first',
-            },
-        }
-    }
-});
-```
+### Navigation Behavior
 
-The plugin supports five strategies:
-
-**balance (default)** - Navigate through datasets using the Up / Down arrow keys and through data items using the Left / Right arrow keys.
-
-**data-first** - Navigate through the dataset from data item to data item and move to the next or previous dataset on corner items.
-
-**dataset-first** - Navigate through data from dataset to dataset and move to the next or previous data item on corner items.
-
-**data** - Navigate through data, activating the data item for all datasets.
-
-**dataset** - Navigate through datasets, activating data in the dataset.
-
-The `direction` property controls the navigation direction and allows configuring the plugin to work in RTL mode.
+The `strategy` property allows you to control which arrow keys can be used for navigation. The `direction` property configures the navigation flow (useful for RTL layouts).
 
 ```javascript
 const chart = new Chart(ctx, {
     // ...
     options: {
         plugins: {
-            // ...
-            chartjsKeyboardPlugin: {
+            chartjsLegendKeyboardPlugin: {
+              strategy: 'horizontal',
               direction: 'rtl',
             },
         }
@@ -140,19 +113,77 @@ const chart = new Chart(ctx, {
 });
 ```
 
-The plugin supports `ltr` (default) and `rtl` directions.
+**Supported Strategies:**
 
-### TypeScript
+- **`both`** (default) - Navigate through legend items using the Up / Down / Left / Right arrow keys.
+- **`horizontal`** - Navigate through legend items using only the Left / Right arrow keys.
+- **`vertical`** - Navigate through legend items using only the Up / Down arrow keys.
+
+**Supported Directions:**
+
+- **`ltr`** (default) - Left-to-right navigation.
+- **`rtl`** - Right-to-left navigation.
+
+### Accessibility (Pronunciation)
+
+The plugin is built with screen readers in mind. You can customize the `aria-label` applied to the legend container and individual items to control how they are pronounced.
+
+```javascript
+const chart = new Chart(ctx, {
+    // ...
+    options: {
+        plugins: {
+            chartjsLegendKeyboardPlugin: {
+              label: 'Main Chart Legend',
+              itemLabelPattern: 'Dataset {title}, item {index} out of {count}',
+            },
+        }
+    }
+});
+```
+
+- **`label`**: (string) The `aria-label` applied to the main legend region container. _Default: `'Chart Legend'`_.
+- **`itemLabelPattern`**: (string) A template used to generate the `aria-label` for each legend item. It supports the following dynamic variables:
+  - `{title}`: The text label of the dataset/item.
+  - `{index}`: The 1-based index of the current item.
+  - `{count}`: The total number of items in the legend. _Default: `'{title}, {index} of {count}'`_.
+
+### Styling
+
+You can customize the appearance of the focus outline applied to legend items when they are navigated via the keyboard.
+
+```javascript
+const chart = new Chart(ctx, {
+    // ...
+    options: {
+        plugins: {
+            chartjsLegendKeyboardPlugin: {
+              outlineColor: '#ff0000',
+              outlineOffset: '2px',
+              outlineWeight: '3px',
+              borderRadius: '4px',
+            },
+        }
+    }
+});
+```
+
+- **`outlineColor`**: The color of the focus outline. _Default: `'inherit'`_.
+- **`outlineWeight`**: The thickness of the focus outline. _Default: `'inherit'`_.
+- **`outlineOffset`**: The space between the element and its focus outline. _Default: `'inherit'`_.
+- **`borderRadius`**: The border radius of the focus outline to match rounded chart designs. _Default: `'inherit'`_.
+
+## TypeScript
 
 To use the plugin with TypeScript, you need to add types to the `chart.js` module. For example, add a `global.d.ts` file with the following definition:
 
 ```typescript
 import { ChartType } from 'chart.js';
-import { type TChartjsKeyboardPluginOptions } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
+import { type TChartjsLegendKeyboardPluginOptions } from '@kuzanatoliorg/chartjs-legend-keyboard-plugin';
 
 declare module 'chart.js' {
   interface PluginOptionsByType<TType extends ChartType> {
-    chartjsKeyboardPlugin?: TChartjsKeyboardPluginOptions;
+    chartjsLegendKeyboardPlugin?: TChartjsLegendKeyboardPluginOptions;
   }
 }
 ```

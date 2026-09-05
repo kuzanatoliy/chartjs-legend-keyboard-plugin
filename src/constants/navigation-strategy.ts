@@ -6,7 +6,7 @@ export const NavigationStrategy: Record<
   TNavigationStrategyKey,
   TNavigationStrategy
 > = {
-  HORIZONTAL: 'horyzontal',
+  HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
   BOTH: 'both',
 } as const;
