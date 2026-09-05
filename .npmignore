@@ -13,3 +13,4 @@ package-lock.json
 tsconfig.cjs.json
 tsconfig.esm.json
 tsconfig.json
+rollup.config.js
