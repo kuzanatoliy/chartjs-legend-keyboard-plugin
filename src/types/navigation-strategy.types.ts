@@ -1,1 +1,1 @@
-export type TNavigationStrategy = 'horyzontal' | 'vertical' | 'both';
+export type TNavigationStrategy = 'horizontal' | 'vertical' | 'both';
