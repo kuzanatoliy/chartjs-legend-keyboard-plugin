@@ -1,6 +1,6 @@
 {
   "name": "@kuzanatoliorg/chartjs-legend-keyboard-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "description": "Chartjs keyboard navigation plugin",
   "keywords": [
