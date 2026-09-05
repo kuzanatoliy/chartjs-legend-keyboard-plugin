@@ -186,8 +186,8 @@ export class ChartjsLegendKeyboardPluginEngine {
       width: lwidth = 0,
       height: lheight = 0,
     } = this.chart.legend || {};
-    this.legendContainer.style.top = `${rect.top + window.scrollY + ltop - offsetRect.y}px`;
-    this.legendContainer.style.left = `${rect.left + window.scrollX + lleft - offsetRect.x}px`;
+    this.legendContainer.style.top = `${rect.top + ltop - offsetRect.y}px`;
+    this.legendContainer.style.left = `${rect.left + lleft - offsetRect.x}px`;
     this.legendContainer.style.width = `${lwidth}px`;
     this.legendContainer.style.height = `${lheight}px`;
     this.legendOptions.forEach((item, ind) => {
